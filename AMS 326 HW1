@@ -1,0 +1,30 @@
+import sympy
+import time
+from sympy.solvers import solve
+from sympy import Symbol
+print(time.time())
+start = -0.282887204
+end = 1.0
+
+x = Symbol('x')
+y = Symbol('y')
+y_vals=solve((x**2+y**2)**2-x**3-y**3,y)
+
+area = 0
+x = start
+
+# Set the interval here
+interval = 0.001
+
+
+while(x<end):
+    ##if i<len(milestone) and x>=milestone[i]:
+        ##print("Processing at : ",milestone[i])
+        ##i+=1
+    y_vals = solve((x ** 2 + y ** 2) ** 2 - x ** 3 - y ** 3, y)
+    area += (y_vals[1] - y_vals[0]) * interval
+    x += interval
+
+
+print(area)
+print(time.time())
